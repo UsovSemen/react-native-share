@@ -39,7 +39,7 @@ public abstract class ShareIntent {
         if (ShareIntent.hasValidKey("subject", options) ) {
             this.getIntent().putExtra(Intent.EXTRA_SUBJECT, options.getString("subject"));
         }
-        
+
         if (ShareIntent.hasValidKey("title", options) ) {
             this.chooserTitle = options.getString("title");
         }
@@ -104,13 +104,15 @@ public abstract class ShareIntent {
         Intent chooser = Intent.createChooser(this.getIntent(), this.chooserTitle);
         chooser.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-        if (ShareIntent.hasValidKey("showAppsToView", options)) {
+        if (options != null && ShareIntent.hasValidKey("showAppsToView", options)) {
             Intent viewIntent = new Intent(Intent.ACTION_VIEW);
             viewIntent.setType(this.fileShare.getType());
 
             Intent[] viewIntents = this.getIntentsToViewFile(viewIntent, this.fileShare.getURI());
 
             chooser.putExtra(Intent.EXTRA_INITIAL_INTENTS, viewIntents);
+        } else {
+            System.out.println("OPTIONS");
         }
 
         this.reactContext.startActivity(chooser);

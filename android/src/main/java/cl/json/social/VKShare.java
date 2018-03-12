@@ -10,7 +10,7 @@ import com.facebook.react.bridge.ReadableMap;
  */
 public class VKShare extends SingleShareIntent {
 
-    private static final String PACKAGE = "com.twitter.android";
+    private static final String PACKAGE = "com.vk.android";
     private static final String DEFAULT_WEB_LINK = "https://vk.com/share.php?title={message}&url={url}";
 
     public TwitterShare(ReactApplicationContext reactContext) {

@@ -13,7 +13,7 @@ public class VKShare extends SingleShareIntent {
     private static final String PACKAGE = "com.vk.android";
     private static final String DEFAULT_WEB_LINK = "https://vk.com/share.php?title={message}&url={url}";
 
-    public TwitterShare(ReactApplicationContext reactContext) {
+    public VKShare(ReactApplicationContext reactContext) {
         super(reactContext);
     }
     @Override
